@@ -98,7 +98,24 @@ document.addEventListener('DOMContentLoaded', () => {
           el: '.swiper-scrollbar',
         },
     });
+    // modal 
 
+    const modalTriggerFr = document.querySelector('.contacts__freelance_btn'),
+          modalOverlayFr = document.querySelector('.freelance__modal_overlay'),
+          modalCloseFr = document.querySelector('.freelance__modal_close'),
+          modalFr = document.querySelector('.freelance__modal');
+
+    modalTriggerFr.addEventListener('click', () => {
+        modalFr.classList.add('active');
+    });
+    modalOverlayFr.addEventListener('click', (e) => {
+        if (e.target == modalOverlayFr && e.target != document.querySelector('.freelance__modal_body')) {
+            modalFr.classList.remove('active');
+        }
+    });
+    modalCloseFr.addEventListener('click', () => {
+        modalFr.classList.remove('active');
+    });
 
     // плавный скролл по якорям 
     var linkNav = document.querySelectorAll('[href^="#"]'), //выбираем все ссылки к якорю на странице
